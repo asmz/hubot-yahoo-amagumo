@@ -4,9 +4,7 @@ hubot-yahoo-amagumo adds Yahoo Rain-cloud(Amagumo) Radar infomation.
 
 ## Installation
 
-Add `hubot-yahoo-amagumo` to your package.json, run `npm install` and add hubot-at to `external-scripts.json`.
-
-Add hubot-at to your `package.json` dependencies.
+Add `hubot-yahoo-amagumo` to your `package.json` dependencies, and run `npm install`.
 
 ```
 "dependencies": {
