@@ -1,11 +1,11 @@
 {
   "name": "hubot-yahoo-amagumo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yahoo Rain-Cloud(Amagumo) Radar hubot",
   "main": "index.coffee",
   "repository": {
     "type": "git",
-    "url": "https://github.com/asmz/hubot-yahoo-amagumo.git"
+    "url": "git://github.com/asmz/hubot-yahoo-amagumo.git"
   },
   "keywords": [
     "hubot",

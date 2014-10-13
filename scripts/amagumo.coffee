@@ -2,7 +2,9 @@
 #   Adds Yahoo Rain-cloud(Amagumo) Radar infomation.
 #
 # Commands:
-#   hubot amagumo me <area> - Returns a Yahoo Rain-Cloud(Amagumo) Rader map view of <areae>
+#   hubot amagumo me <area> - Returns a Yahoo Rain-Cloud(Amagumo) Rader map view of <area>
+#   hubot amagumo zoom me <area> - Returns a zoom Rader map view of <area>
+#   hubot amagumo japan - Returns the whole japan Rader map view of <area>
 #
 # Author:
 #   asmz
@@ -13,8 +15,17 @@ module.exports = (robot) ->
     robot.logger.warning 'Required HUBOT_YAHOO_AMAGUMO_APP_ID environment.'
     return
 
-  robot.respond /amagumo me (.+)/i, (msg) ->
-    area = msg.match[1]
+  width = process.env.HUBOT_YAHOO_AMAGUMO_WIDTH ? "500"
+  height = process.env.HUBOT_YAHOO_AMAGUMO_HEIGHT ? "500"
+  zoom = "12"
+
+  robot.respond /amagumo japan/i, (msg) ->
+    url = getAmagumoRaderUrl "37.9072841", "137.1255805", "6", "500", "500"
+    msg.send url
+
+  robot.respond /amagumo( zoom)? me (.+)/i, (msg) ->
+    zoom = if msg.match[1] then "14" else "12"
+    area = msg.match[2]
 
     msg.http('http://geo.search.olp.yahooapis.jp/OpenLocalPlatform/V1/geoCoder')
       .query({
@@ -33,15 +44,15 @@ module.exports = (robot) ->
         lon = coordinates[0]
         lat = coordinates[1]
 
-        url = getAmagumoRaderUrl lat, lon
+        url = getAmagumoRaderUrl lat, lon, zoom, width, height
         msg.send url
 
-getAmagumoRaderUrl = (lat, lon) ->
+getAmagumoRaderUrl = (lat, lon, zoom, width, height) ->
   url = "http://map.olp.yahooapis.jp/OpenLocalPlatform/V1/static?appid=" +
          process.env.HUBOT_YAHOO_AMAGUMO_APP_ID +
         "&lat=" + lat +
         "&lon=" + lon +
-        "&z=" + "12" +
-        "&width=" + "500" +
-        "&height=" + "500" +
+        "&z=" + zoom +
+        "&width=" + width +
+        "&height=" + height +
         "&overlay=" + "type:rainfall|datelabel:on"

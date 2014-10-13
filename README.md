@@ -1,6 +1,6 @@
 # hubot-yahoo-amagumo
 
-hubot-yahoo-amagumo adds Yahoo Rain-cloud(Amagumo) Radar infomation.
+A hubot script return Yahoo Rain-cloud(Amagumo) Radar infomation.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Add `hubot-yahoo-amagumo` to your `package.json` dependencies, and run `npm inst
 
 ```
 "dependencies": {
-  "hubot-yahoo-amagumo": ">= 0.0.1"
+  "hubot-yahoo-amagumo": ">= 0.0.2"
 }
 ```
 
@@ -19,15 +19,25 @@ Add `hubot-yahoo-amagumo` to `external-scripts.json`.
 > ["hubot-yahoo-amagumo"]
 ```
 
+## Configuration
+
 Required HUBOT_YAHOO_AMAGUMO_APP_ID environment variable.
 
 ```
-> export HUBOT_YAHOO_AMAGUMO_APP_ID="<Your Yahoo APPID>"
+> export HUBOT_YAHOO_AMAGUMO_APP_ID=<Your Yahoo APPID>
+```
+
+The following settings are optional.
+
+```
+> export HUBOT_YAHOO_AMAGUMO_WIDTH=<image size width(px)>   # default : 500px
+> export HUBOT_YAHOO_AMAGUMO_HEIGHT=<image size height(px)> # default : 500px
 ```
 
 ## Usage
 
 ```
-hubot> hubot amagumo me 六本木
-hubot> http://map.olp.yahooapis.jp/OpenLocalPlatform/V1/static?appid=<Your Yahoo APPID>&lat=35.66288632&lon=139.73359259&z=12&width=500&height=500&overlay=type:rainfall|datelabel:on 
+hubot amagumo me <area> - Returns a Yahoo Rain-Cloud(Amagumo) Rader map view of <area>
+hubot amagumo zoom me <area> - Returns a zoom Rader map view of <area>
+hubot amagumo japan - Returns a Rader map view of the whole japan area
 ```
