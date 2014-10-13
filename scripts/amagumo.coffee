@@ -17,11 +17,9 @@ module.exports = (robot) ->
 
   width = process.env.HUBOT_YAHOO_AMAGUMO_WIDTH ? "500"
   height = process.env.HUBOT_YAHOO_AMAGUMO_HEIGHT ? "500"
-  zoom = "12"
 
   robot.respond /amagumo japan/i, (msg) ->
-    url = getAmagumoRaderUrl "37.9072841", "137.1255805", "6", "500", "500"
-    msg.send url
+    msg.send getAmagumoRaderUrl "37.9072841", "137.1255805", "6", "500", "500"
 
   robot.respond /amagumo( zoom)? me (.+)/i, (msg) ->
     zoom = if msg.match[1] then "14" else "12"
@@ -44,8 +42,7 @@ module.exports = (robot) ->
         lon = coordinates[0]
         lat = coordinates[1]
 
-        url = getAmagumoRaderUrl lat, lon, zoom, width, height
-        msg.send url
+        msg.send getAmagumoRaderUrl lat, lon, zoom, width, height
 
 getAmagumoRaderUrl = (lat, lon, zoom, width, height) ->
   url = "http://map.olp.yahooapis.jp/OpenLocalPlatform/V1/static?appid=" +
