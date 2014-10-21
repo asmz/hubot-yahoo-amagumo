@@ -1,10 +1,10 @@
 # Description:
-#   Adds Yahoo Rain-cloud(Amagumo) Radar infomation.
+#   A hubot script return Yahoo Rain-cloud(Amagumo) Radar infomation.
 #
 # Commands:
 #   hubot amagumo me <area> - Returns a Yahoo Rain-Cloud(Amagumo) Rader map view of <area>
 #   hubot amagumo zoom me <area> - Returns a zoom Rader map view of <area>
-#   hubot amagumo japan - Returns the whole japan Rader map view of <area>
+#   hubot amagumo japan - Returns a Rader map view of the whole japan area
 #
 # Author:
 #   asmz
@@ -52,4 +52,4 @@ getAmagumoRaderUrl = (lat, lon, zoom, width, height) ->
         "&z=" + zoom +
         "&width=" + width +
         "&height=" + height +
-        "&overlay=" + "type:rainfall|datelabel:on"
+        "&overlay=" + "type:rainfall"

@@ -8,7 +8,7 @@ Add `hubot-yahoo-amagumo` to your `package.json` dependencies, and run `npm inst
 
 ```
 "dependencies": {
-  "hubot-yahoo-amagumo": ">= 0.0.2"
+  "hubot-yahoo-amagumo": ">= 0.0.3"
 }
 ```
 
