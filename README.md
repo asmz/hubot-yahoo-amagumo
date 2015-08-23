@@ -44,4 +44,4 @@ hubot amagumo japan - Returns a Rader map view of the whole japan area
 
 ## See Also
 
-* [Slack上で現在雨が降ってるか確認できるHubotスクリプトを作ってみた - OTOBANK Engineering Blog] (http://engineering.otobank.co.jp/2014/10/23/hubot-yahoo-amagumo-on-slack/)
+* [Slack上で現在雨が降ってるか確認できるHubotスクリプトを作ってみた - OTOBANK Engineering Blog] (http://engineering.otobank.co.jp/entry/2014/10/23/hubot-yahoo-amagumo-on-slack)
